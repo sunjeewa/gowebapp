@@ -10,3 +10,13 @@ all:
 clean:
 	rm -rf app 
 
+docker:
+	sudo docker build -t goapp:v1 .
+
+gcr: tag-gcr push-gcr
+
+push-gcr:
+	gcloud docker -- push gcr.io/business-projects-163809/goapp:v1
+
+tag-gcr:
+	docker tag goapp:v1 gcr.io/business-projects-163809/goapp:v1	
