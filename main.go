@@ -12,8 +12,7 @@ const (
 var calls = 0
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	calls++
-	fmt.Fprintf(w, "[v1] App called %d times.\n", calls)
+	fmt.Fprintln(w, "[v1] App called")
 }
 
 func init() {
